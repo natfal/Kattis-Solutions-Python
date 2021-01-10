@@ -46,20 +46,13 @@ while True:
 
     for x in range(num):
         myInstruction = input().split()
-        # print(myInstruction[0])
-        # print(myInstruction[1])
+
         bitAPos = 31 - int(myInstruction[1])
         try:
             bitBPos = 31 - int(myInstruction[2])
         except:
             pass
-        # print(bits[bitAPos])
-        # print(bits[bitBPos])
+
         executeInstruct(myInstruction[0])
-        # print(''.join(bits))
-        # print(bitAPos)
-        # print(bitBPos)
-        # print(bits[bitAPos])
-        # print(bits[bitBPos])
 
     print(''.join(bits))
