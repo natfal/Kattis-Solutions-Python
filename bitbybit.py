@@ -1,16 +1,16 @@
 bits = []
 instruction = []
-bitAPos = ""
-bitBPos = ""
+bitAPos = 0
+bitBPos = 0
 
 def executeInstruct(word):
     if (word == "CLEAR"):
         bit_clear()
-    if (word == "SET"):
+    elif (word == "SET"):
         bit_set()
-    if (word == "OR"):
+    elif (word == "OR"):
         bit_or()
-    if (word == "AND"):
+    elif (word == "AND"):
         bit_and()
 
 def bit_clear():
@@ -21,19 +21,19 @@ def bit_set():
 
 def bit_or():
     if bits[bitAPos] == '1' or bits[bitBPos] == '1':
-        bits[bitAPos] == '1'
-    elif bits[bitAPos] == '?' or bits[bitAPos] == '?':
-        bits[bitAPos] == '?'
+        bits[bitAPos] = '1'
+    elif bits[bitAPos] == '?' or bits[bitBPos] == '?':
+        bits[bitAPos] = '?'
     else:
-        bits[bitAPos] == '0'
+        bits[bitAPos] = '0'
 
 def bit_and():
-    if bits[bitAPos] == '1' and bits[bitBPos] == '1':
-        bits[bitAPos] == '1'
-    elif bits[bitAPos] == '0' or bits[bitAPos] == '0':
-        bits[bitAPos] == '0'
+    if bits[bitAPos] == '0' or bits[bitBPos] == '0':
+        bits[bitAPos] = '0'
+    elif bits[bitAPos] == '1' and bits[bitBPos] == '1':
+        bits[bitAPos] = '1'
     else:
-        bits[bitAPos] == '?'
+        bits[bitAPos] = '?'
 
 while True:
     num = int(input())
@@ -53,6 +53,13 @@ while True:
             bitBPos = 31 - int(myInstruction[2])
         except:
             pass
+        # print(bits[bitAPos])
+        # print(bits[bitBPos])
         executeInstruct(myInstruction[0])
+        # print(''.join(bits))
+        # print(bitAPos)
+        # print(bitBPos)
+        # print(bits[bitAPos])
+        # print(bits[bitBPos])
 
     print(''.join(bits))
